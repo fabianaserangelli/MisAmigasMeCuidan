@@ -12,19 +12,52 @@ function openPage(pageName,elmnt,color) {
 	elmnt.style.backgroundColor = color;
 }
 
-function myFunction() {
-	$('#id-card').prepend(
+var modal = document.getElementById("myModal");
+var spanClose = document.getElementsByClassName("close")[0];
+var btnAdd1 = document.getElementById("plus-button-1");
+var btnAdd2 = document.getElementById("plus-button-2");
+var btnPublish = document.getElementById("publish-button")
+
+btnAdd1.onclick = function() /*function myFunction()*/ {
+	modal.style.display = "block";
+}
+
+btnPublish.onclick = function() {
+	modal.style.display = "none";
+	var tituloCard = $('#titulo').val();
+	var descripCard = $('#descripcion').val();
+	$('#id-card-1').prepend(
 		`<div class="column">
 			<div class="card">
-	  			<h3>Tarjeta</h3>
-	  				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	  			<h3>${$('#titulo').val()}</h3>
+	  			<p>${$('#descripcion').val()}</p>
 	  		</div>
 	  	</div>`);
+}
+
+btnAdd2.onclick = function() {
+	$('#id-card-2').prepend(
+		`<div class="column">
+			<div class="card">
+	  			<h3>Título con hora y lugar</h3>
+	  			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	  	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	  	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	  	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	  	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	  	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	  		</div>
+	  	</div>`);
+}
+
+spanClose.onclick = function() {
+	modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+	if (event.target == modal) {
+		modal.style.display = "none"
+	}
 }
 
 // Get the element with id="defaultOpen" and click on it
