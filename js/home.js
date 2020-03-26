@@ -18,10 +18,12 @@ var btnAdd1 = document.getElementById("plus-button-1");
 var btnAdd2 = document.getElementById("plus-button-2");
 var btnPublish = document.getElementById("publish-button")
 
-btnAdd1.onclick = function() /*function myFunction()*/ {
+// Se abre el modal del Tendedero
+btnAdd1.onclick = function() {
 	modal.style.display = "block";
 }
 
+// Se publica en el Tendedero después de presionar el botón
 btnPublish.onclick = function() {
 	modal.style.display = "none";
 	var tituloCard = $('#titulo').val();
@@ -33,8 +35,11 @@ btnPublish.onclick = function() {
 	  			<p>${$('#descripcion').val()}</p>
 	  		</div>
 	  	</div>`);
+	document.getElementById('titulo').value = '';
+	document.getElementById('descripcion').value = '';
 }
 
+// Se publica en el Acompañar
 btnAdd2.onclick = function() {
 	$('#id-card-2').prepend(
 		`<div class="column">
@@ -50,10 +55,12 @@ btnAdd2.onclick = function() {
 	  	</div>`);
 }
 
+// Se cierra el modal al presionar la x
 spanClose.onclick = function() {
 	modal.style.display = "none";
 }
 
+// Se cierra el modal al presionar fuera de este mismo
 window.onclick = function(event) {
 	if (event.target == modal) {
 		modal.style.display = "none"
